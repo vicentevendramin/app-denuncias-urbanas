@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { globalStyles } from '../styles/globalStyles';
-import { useNavigation } from '@react-navigation/native';
 
-const AddReportScreen = () => {
-  const navigation = useNavigation();
+type Props = {
+  navigation: NavigationProp<any>;
+};
+
+const AddReportScreen: React.FC<Props> = ({ navigation }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -18,7 +21,7 @@ const AddReportScreen = () => {
     console.log('Denúncia adicionada:', { title, description });
 
     Alert.alert('Sucesso', 'Denúncia adicionada com sucesso!');
-    navigation.goBack();
+    navigation.goBack(); // Navega para a tela anterior
   };
 
   return (
@@ -44,6 +47,7 @@ const AddReportScreen = () => {
           borderRadius: 5,
           height: 100,
           textAlignVertical: 'top',
+          marginBottom: 10,
         }}
         placeholder="Descrição"
         multiline

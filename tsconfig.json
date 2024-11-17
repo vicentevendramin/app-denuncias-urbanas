@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "types": ["jest"],
     "module": "commonjs",
     "strict": true,
     "jsx": "react",
